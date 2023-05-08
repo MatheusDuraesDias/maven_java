@@ -36,7 +36,7 @@ jobs:
           image: matheus230100/aula_maven_f
           tags: 1.0
           registry: docker.io
-          dockerfile: dockerfile
+          dockerfile: Dockerfile
           username: ${{secrets.DOCKERHUB_USUARIO}}
           password: ${{secrets.DOCKERHUB_PASSWORD}}
 
