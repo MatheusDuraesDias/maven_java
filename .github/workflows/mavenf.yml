@@ -38,6 +38,6 @@ jobs:
           registry: docker.io
           dockerfile: dockerfile
           username: AINDANAOSEI
-          password: testeBacana
+          password: ${{}}
 
           
