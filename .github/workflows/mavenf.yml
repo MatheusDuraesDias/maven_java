@@ -50,7 +50,7 @@ jobs:
       name: Deploy Docker image
       with:
           image: matheus230100/aula_maven_f
-          tags: ${{ github.run_number }}, ${{ steps.gerador.output.version }}
+          tags: ${{ github.run_number }}, ${{ steps.gerador.outputs.version }}
           registry: docker.io
           dockerfile: dockerfile
           username: ${{ secrets.DOCKERHUB_USUSARIO }}
