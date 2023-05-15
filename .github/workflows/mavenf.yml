@@ -32,7 +32,7 @@ jobs:
       
     - name: Ver a senha
       run: |
-          echo ${{secrets.DOCKERHUB_USUARIO}}
+          echo "User: ${{ secrets.DOCKERHUB_USUARIO }}"
           
     - uses: mr-smithers-excellent/docker-build-push@v6
       name: Deploy Docker image
@@ -41,7 +41,7 @@ jobs:
           tags: 1.0, minecraft2
           registry: docker.io
           dockerfile: dockerfile
-          username: ${{secrets.DOCKERHUB_USUARIO}}
-          password: ${{secrets.DOCKERHUB_PASSWORD}}
+          username: ${{ secrets.DOCKERHUB_USUARIO }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
           
