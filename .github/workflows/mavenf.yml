@@ -35,10 +35,16 @@ jobs:
           echo "User: ${{ secrets.DOCKERHUB_USUSARIO }}"
           
     - uses: mr-smithers-excellent/docker-build-push@v6
+    
+#       name: calculando
+#       id: calculo
+#       run: |
+#           teste: ${{ github.run_number }} / 10
+          
       name: Deploy Docker image
       with:
           image: matheus230100/aula_maven_f
-          tags: ${{ github.run_number }}
+          tags: (${{ github.run_number }} / 10)
           registry: docker.io
           dockerfile: dockerfile
           username: ${{ secrets.DOCKERHUB_USUSARIO }}
