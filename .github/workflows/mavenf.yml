@@ -30,6 +30,10 @@ jobs:
     - name: Run Program - JAVA
       run: java -cp target/classes org.example.Main
       
+    - name: Ver a senha
+      run: |
+          echo ${{secrets.DOCKERHUB_USUARIO}}
+          
     - uses: mr-smithers-excellent/docker-build-push@v6
       name: Deploy Docker image
       with:
