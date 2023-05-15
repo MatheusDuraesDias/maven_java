@@ -34,7 +34,7 @@ jobs:
       name: Deploy Docker image
       with:
           image: matheus230100/aula_maven_f
-          tags: 1.0
+          tags: 1.0, minecraft2
           registry: docker.io
           dockerfile: dockerfile
           username: ${{secrets.DOCKERHUB_USUARIO}}
