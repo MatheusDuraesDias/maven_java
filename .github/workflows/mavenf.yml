@@ -34,17 +34,23 @@ jobs:
       run: |
           echo "User: ${{ secrets.DOCKERHUB_USUSARIO }}"
           
-    - uses: mr-smithers-excellent/docker-build-push@v6
     
-#       name: calculando
+#     - name: calculando
 #       id: calculo
-#       run: |
-#           teste: ${{ github.run_number }} / 10
+#       run: | 
+#           echo "::set-output name=version_new::echo$(echo ${{ github_run_number }}/10)"
+    - name: Git version 
+      id: gerador
+    - uses: codacy/git-version@2.4.0
+      with:
+        release-branch: main
+        dev-branch: main
           
+    - uses: mr-smithers-excellent/docker-build-push@v6
       name: Deploy Docker image
       with:
           image: matheus230100/aula_maven_f
-          tags: (${{ github.run_number }} / 10)
+          tags: ${{ github.run_number }}, ${{ steps.gerador.output.version }}
           registry: docker.io
           dockerfile: dockerfile
           username: ${{ secrets.DOCKERHUB_USUSARIO }}
